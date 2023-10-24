@@ -29,7 +29,7 @@ public class Customer
    */
       public int compare(Customer c1, Customer c2)
       {
-            return 0;
+            return c1.netWorth - c2.netWorth;
       }
    
    }
@@ -48,7 +48,7 @@ public class Customer
    */
       public int compare(Customer c1, Customer c2)
       {
-	  return 0;
+    	  return c1.yearsWithCompany - c2.yearsWithCompany;
       }
    
    }
@@ -69,7 +69,16 @@ public class Customer
    */
       public int compare(Customer c1, Customer c2)
       {
-	  return 0;
+    	 Customer.WorthComparator wc = new WorthComparator();
+    	 
+    	 int temp = wc.compare(c1, c2);
+    	 
+    	 if(temp == 0) {
+    		 return c1.politeness - c2.politeness;
+    	 }
+    	 else {
+    		 return temp;
+    	 }
       }
    
    }
